@@ -17,7 +17,7 @@ class CreateUserActionLogsTable extends Migration
             $table->id();
             $table->foreignId('book_id');
             $table->foreign('book_id')->references('id')->on('books');
-            $table->enum('action', ['CHECKIN', '‘CHECKOUT']);
+            $table->enum('action', ['CHECKIN', 'CHECKOUT']);
             $table->timestamps();
         });
     }

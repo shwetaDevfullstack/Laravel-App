@@ -6,37 +6,35 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <!--div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="panel-body">
-                                <table class="table table-striped book-table">
-
-                                    <!-- Table Headings -->
-                                    <thead>
-                                        <th>Book</th>
-                                        <th>&nbsp;</th>
-                                    </thead>
-
-                                    <!-- Table Body -->
-                                    <tbody>
-                                        @foreach ($books as $book)
-                                            <tr>
-                                                <!-- Book Name -->
-                                                <td class="table-text">
-                                                    <div>{{ $book->title }}</div>
-                                                </td>
-
-                                                <td>
-                                                    <!-- TODO: Delete Button -->
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                </div>
+                Test
             </div>
-        </div>
+        </div-->
+        <div class="md:px-32 py-8 w-full">
+            <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                <table class="min-w-full bg-white">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Title</th>
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">ISBN</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Status</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Craeted At</td>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                    @foreach ($books as $book)
+                    <tr class="border-b hover:bg-orange-100 bg-gray-100">
+                        <td class="p-3 px-5"><a class="hover:text-blue-500" href="{{ url('book-check/'.$book->id) }}">{{ $book->title }}</a></td>
+                        <td class="p-3 px-5">{{ $book->isbn }}</td>
+                        <td class="p-3 px-5">{{ $book->status }}</td>
+                        <td class="p-3 px-5">{{ date('d-m-Y', strtotime($book->created_at)) }}</td>
+                        <!--td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td-->
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
+            </div>
+            </div>
     </div>
 </x-app-layout>

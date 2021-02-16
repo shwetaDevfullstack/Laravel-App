@@ -46,8 +46,7 @@ class BookController extends BaseController
                 if ($n != 10) 
                     return false; 
             
-                // Computing weighted sum 
-                // of first 9 digits 
+                // Computing weighted sum of first 9 digits 
                 $sum = 0; 
                 for ($i = 0; $i < 9; $i++) 
                 { 
@@ -62,12 +61,10 @@ class BookController extends BaseController
                 if ($last != 'X' && ($last < '0' || $last > '9')) 
                     return false; 
             
-                // If last digit is 'X', add 10  
-                // to sum, else add its value. 
+                // If last digit is 'X', add 10 to sum, else add its value. 
                 $sum += (($last == 'X') ? 10 : ($last - '0')); 
             
-                // Return true if weighted sum of  
-                // digits is divisible by 11. 
+                // Return true if weighted sum of digits is divisible by 11. 
                 return $sum % 11 == 0;
 
             }, "It's not valid ISBN");
@@ -92,10 +89,6 @@ class BookController extends BaseController
             return $this->sendError($ex->getMessage(), 'Please check.');
         }
     }
-
-    // public function isValidISBN($isbn){
-    
-    // }
 
     /**
      * Display the specified resource.
